@@ -3,7 +3,6 @@ import crawling
 from datetime import datetime
 
 def db_check(id):
-
     db = pymysql.connect(host='localhost',
                             port=3306,
                             user='root',
@@ -16,16 +15,17 @@ def db_check(id):
              """
 
     cursor.execute(sql, id)
-    result = cursor.fetchall()
+    result = cursor.fetchone()
 
     if result == ():
-        result = False
-    else:
-        result = True
+        exist = False
+    elif result != ():
+        exist = True
 
     db.commit()
-    db.close() 
-    return result
+    db.close()
+
+    return [result, exist]
 
 
 def db_insert(data):
