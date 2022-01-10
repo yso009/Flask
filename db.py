@@ -17,9 +17,9 @@ def db_check(id):
     cursor.execute(sql, id)
     result = cursor.fetchone()
 
-    if result == ():
+    if result == None:
         exist = False
-    elif result != ():
+    elif result != None:
         exist = True
 
     db.commit()
