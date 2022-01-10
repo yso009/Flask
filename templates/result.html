@@ -5,14 +5,22 @@
     <title>Title</title>
 </head>
 <body>
-<h1>결과페이지 </h1>
 
-{{ check}}
-
-
-user_data = {{ user_data }}
-이메일 : 없음 <br>
+        <h1>검색 결과</h1>
 
 
+        <div>
+            <li>Search_date : {{ user_data[7][:19]}}(이전 검색 날짜)  -----------------------  {{search_data1[6]}}(실시간 검색 날짜)</li>
+            <li>이전 데이터 ------------------------------------------------------------------ 갱신된 데이터</li>
+            <li>Nickname : {{ user_data[0] }} ------------------------------------------------------ {{search_data1[1]}} </li>
+            <li>Name : {{ user_data[1] }} -----------------------------------------------------------  {{search_data1[0]}}</li>
+            <li>Followers : {{ user_data[3] }}  ----------------------------------------------------------------  {{search_data1[2]}} / {% if user_data[3] - search_data1[2] == 0 %} 변동 없음 {% else %}{{ user_data[3] - search_data1[2] }} {%endif %}</li>
+            <li>Followings : {{ user_data[4] }}  --------------------------------------------------------------- {{search_data1[3]}} / {% if user_data[4] - search_data1[3] == 0 %} 변동 없음 {% else %}{{ user_data[4] - search_data1[3] }} {%endif %}</li>
+            <li>Repository : {{ user_data[5] }}  --------------------------------------------------------------- {{search_data1[4]}} / {% if user_data[5] - search_data1[4] == 0 %} 변동 없음 {% else %}{{ user_data[5] - search_data1[4] }} {%endif %}</li>
+            <li>Introduce : {{ user_data[6] }} ------------------------------- {{search_data1[5]}} </li>
+        </div>
+
+        <input type="button" value="이전" onClick="history.go(-1)">
+    
 </body>
 </html>
