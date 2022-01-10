@@ -12,15 +12,24 @@ def search():
 def result():
     if request.method=='POST':
         id = request.form['nickname'].lower()
-        check = db.db_check(id)[1]
-        user_data = db.db_check(id)[0]
-        if check == False:
-            db.db_insert(id)
-
+        search_data1 = crawling.get_data(id) # 실시간 데이터
         
+        if search_data1 == False:
+            none = False
+            user_data = None
+            return render_template('error.html')
+            
+        else:
+            check = db.db_check(id)[1]
+            if check == False: # db에 데이터가 없으면 
+                db.db_insert(id) # db에 저장
+                user_data = db.db_check(id)[0]
 
-
-    return render_template('result.html', id=id, check=check, user_data=user_data)
+            else: # db에 데이터가 있다면 방금 크롤링 한 값으로 업데이트
+                user_data = db.db_check(id)[0]
+                db.db_update(search_data1)
+            
+            return render_template('result.html', user_data=user_data, search_data1 = search_data1)
 
 if __name__ =="__main__":
     app.run(debug=True)
