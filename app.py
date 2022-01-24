@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request
+from flask import Flask, make_response, render_template, request
 import crawling, db
 import requests
+cookie_data = []
 
 app = Flask(__name__)
 
@@ -28,8 +29,27 @@ def result():
             else: # db에 데이터가 있다면 방금 크롤링 한 값으로 업데이트
                 user_data = db.db_check(id)[0]
                 db.db_update(search_data1)
+
+        user = request.form['nickname']
+        resp = make_response(render_template('result.html', user_data=user_data, search_data1 = search_data1))
+        resp.set_cookie('nickname',user, max_age=None)
+
+        return resp
+
+        
             
-            return render_template('result.html', user_data=user_data, search_data1 = search_data1)
+            # return render_template('result.html', user_data=user_data, search_data1 = search_data1)
+
+
+@app.route('/getcookie')
+def setcookie():
+
+    nickname = request.cookies.get('nickname')
+    cookie_data.append(nickname)
+    set_cookie_data = set(cookie_data)
+    cookie_data_result = set_cookie_data
+    return render_template('getcookie.html', li = sorted(cookie_data_result))
+
 
 if __name__ =="__main__":
     app.run(debug=True)
