@@ -1,3 +1,4 @@
+from glob import glob
 from flask import Flask, make_response, render_template, request
 import crawling, db
 import requests
@@ -36,19 +37,40 @@ def result():
 
         return resp
 
-        
-            
             # return render_template('result.html', user_data=user_data, search_data1 = search_data1)
+
+
+def cookie(nickname):
+    if nickname == '':
+        return cookie_data.clear()
+    else:
+        cookie_data.append(nickname)
+        set_cookie_data = set(cookie_data)
+        cookie_data_result = set_cookie_data
+        return cookie_data_result
 
 
 @app.route('/getcookie')
 def setcookie():
 
     nickname = request.cookies.get('nickname')
-    cookie_data.append(nickname)
-    set_cookie_data = set(cookie_data)
-    cookie_data_result = set_cookie_data
-    return render_template('getcookie.html', li = sorted(cookie_data_result))
+    result = cookie(nickname)
+    print(result)
+    if len(result) == 0:
+        result = 'No Data'
+    # cookie_data.append(nickname)
+    # set_cookie_data = set(cookie_data)
+    # cookie_data_result = set_cookie_data
+    
+    return render_template('getcookie.html', li = result)
+
+@app.route('/refresh')
+def delete_cookie():
+    nickname = ''
+    result = cookie(nickname)
+    return render_template('getcookie.html', li='No Data')
+
+    
 
 
 if __name__ =="__main__":
