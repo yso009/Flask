@@ -39,11 +39,11 @@ def db_insert(data):
                             charset='utf8')
 
     cursor = db.cursor()
-    sql = """ insert into fla(name, nickname, followers, followings, repository, introduce, search_date) 
-                values (%s,%s,%s,%s,%s,%s,%s)
+    sql = """ insert into fla(name, nickname, followers, followings, repository, introduce, search_date, contribution) 
+                values (%s,%s,%s,%s,%s,%s,%s,%s)
              """
 
-    cursor.execute(sql,(crawl_data[0], crawl_data[1], crawl_data[2], crawl_data[3], crawl_data[4], crawl_data[5], datetime.now()))
+    cursor.execute(sql,(crawl_data[0], crawl_data[1], crawl_data[2], crawl_data[3], crawl_data[4], crawl_data[5], datetime.now(), crawl_data[7]))
 
     db.commit()
     db.close()
@@ -58,10 +58,10 @@ def db_update(data):
                             charset='utf8')
 
     cursor = db.cursor()
-    sql = """ update fla set name = %s, nickname = %s, followers=%s, followings=%s, repository=%s, introduce=%s, search_date=%s 
+    sql = """ update fla set name = %s, nickname = %s, followers=%s, followings=%s, repository=%s, introduce=%s, search_date=%s , contribution=%s
      where nickname = %s
     """
 
-    cursor.execute(sql,(crawl_data[0], crawl_data[1], crawl_data[2], crawl_data[3], crawl_data[4], crawl_data[5], datetime.now(), crawl_data[1]))
+    cursor.execute(sql,(crawl_data[0], crawl_data[1], crawl_data[2], crawl_data[3], crawl_data[4], crawl_data[5], datetime.now(), crawl_data[7], crawl_data[1]))
     db.commit()
     db.close()
