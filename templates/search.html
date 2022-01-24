@@ -5,11 +5,14 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <title>Document</title>
 </head>
-<body>
-    <h1>대문 페이지</h1>
-    <form action="/result" method="POST">
-        <textarea name="nickname" id="nickname"></textarea>
-        <input type="submit" value="검색">
-    </form>
+<body class="search_body">
+    <!-- <img src="{{ url_for('static',filename='images/github.png')}}"> -->
+    <div class="search_main">
+        <h1>Search</h1>
+        <form action="/result" method="POST">
+            <textarea name="nickname" id="nickname"></textarea>
+            <input type="submit" value="검색">
+        </form>
+    </div>
 </body>
 </html>
