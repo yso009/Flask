@@ -11,8 +11,16 @@ def get_data(id):
         resp = requests.get(url)
         soup = bs(resp.text, 'html.parser')
         name = soup.select_one('span.p-name').get_text().replace('\n', '').replace(' ', '').lower()
+        
+        if name == '':
+            name = 'No Data'
+
         nickname = soup.select_one('span.p-nickname').get_text().replace('\n', '').replace(' ', '').lower()
         introduce = soup.select_one('div.p-note').get_text()
+
+        if introduce == '':
+            introduce = 'No Data' 
+        
         followers = soup.select('span.text-bold')[0].get_text()
         followings = soup.select('span.text-bold')[1].get_text()
         repository = soup.select_one('span.Counter').get_text()
