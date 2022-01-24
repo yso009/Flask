@@ -6,13 +6,26 @@
     <title>Document</title>
 </head>
 <body class="search_body">
-    <!-- <img src="{{ url_for('static',filename='images/github.png')}}"> -->
     <div class="search_main">
-        <h1>Search</h1>
-        <form action="/result" method="POST">
-            <textarea name="nickname" id="nickname"></textarea>
-            <input type="submit" value="검색">
-        </form>
+        <div >
+            <h1>Search</h1>
+            <form action="/result" method="POST">
+                <input name="nickname" id="nickname"></input>
+                <!-- <input class="button-82" type="submit" value="검색"> -->
+
+                <br>
+
+                <button class="button-82-pushable" role="button">
+                    <span class="button-82-shadow"></span>
+                    <span class="button-82-edge"></span>
+                    <span class="button-82-front text">
+                    Search
+                    </span>
+                </button>
+
+
+            </form>
+        </div>
     </div>
 </body>
 </html>

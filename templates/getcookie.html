@@ -1,10 +1,34 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <body class="search_body">
 
-{% for i in li %}
+            <div class="search_main">
+                <div>
+                    <h1>Search_list</h1>
+                    {% for i in li %}
+                    <li>{{i}}<br></li>
+                    {% endfor%}
+                    <button  onclick="location.href='http://127.0.0.1:5000/'"class="button-82-pushable" role="button">
+                        <span class="button-82-shadow"></span>
+                        <span class="button-82-edge"></span>
+                        <span class="button-82-front text">
+                            Re Search
+                        </span>
+                    </button>
 
-    <li>{{i}}<br></li>
 
-{% endfor%}
+                    <button  onclick="location.href='http://127.0.0.1:5000/'"class="button-82-pushable" role="button" style="width: 180px;">
+                        <span class="button-82-shadow"></span>
+                        <span class="button-82-edge"></span>
+                        <span class="button-82-front text">
+                              Refresh  
+                        </span>
+                    </button>
 
-
-<button>gdgd</button>
+                </div>
+             </div>
+        </body>
+    </head>
+</html>
 
