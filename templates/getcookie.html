@@ -4,11 +4,20 @@
         <body class="search_body">
 
             <div class="search_main">
-                <div>
-                    <h1>Search_list</h1>
-                    {% for i in li %}
-                    <li>{{i}}<br></li>
-                    {% endfor%}
+                <div >
+                    <h1 style="text-align: center;">Search_list</h1>
+                    
+                    {% if 'N' in li %}
+                        <li>데이터가 없습니다.</li>
+                    {% else %}
+                        {% for i in li %}
+                        <li>{{i}}<br></li>
+                        {% endfor%}
+                    {% endif %}
+
+
+                    
+
                     <button  onclick="location.href='http://127.0.0.1:5000/'"class="button-82-pushable" role="button">
                         <span class="button-82-shadow"></span>
                         <span class="button-82-edge"></span>
@@ -18,11 +27,11 @@
                     </button>
 
 
-                    <button  onclick="location.href='http://127.0.0.1:5000/'"class="button-82-pushable" role="button" style="width: 180px;">
+                    <button  onclick="location.href='http://127.0.0.1:5000/refresh'"class="button-82-pushable" role="button" style="width: 180px;">
                         <span class="button-82-shadow"></span>
                         <span class="button-82-edge"></span>
                         <span class="button-82-front text">
-                              Refresh  
+                              Refresh
                         </span>
                     </button>
 
