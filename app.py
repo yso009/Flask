@@ -13,7 +13,7 @@ def result():
     if request.method=='POST':
         id = request.form['nickname'].lower()
         search_data1 = crawling.get_data(id) # 실시간 데이터
-        
+
         if search_data1 == False:
             none = False
             user_data = None
