@@ -2,6 +2,21 @@ h1 {
   color: red;
 }
 
+@font-face {
+  src: url("../fonts/BlackAndWhitePicture-Regular.ttf");
+  font-family: "Jua";
+}
+
+#fonts_in_my_counmputer {
+  font-family: "Jua";
+  color: white;
+}
+
+.death {
+  text-align: center;
+  font-size: 100px;
+}
+
 li {
   color: white;
   font-size: 25px;
@@ -13,7 +28,7 @@ li {
 
 .search_main {
   width: 98vw;
-  height: 90vh;
+  height: 75vh;
   display: flex;
   align-items: center;
   justify-content: center;
