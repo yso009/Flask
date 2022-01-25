@@ -2,10 +2,12 @@
     <head>
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
         <body class="search_body">
+            <div id="fonts_in_my_counmputer" class="death">Death note</div>
 
             <div class="search_main">
                 <div >
-                    <h1 style="text-align: center;" > <a href="http://127.0.0.1:5000/" style="color: red; text-decoration-line : none;">Search_list</a></h1>
+                    <h1 style="text-align: center;" id="fonts_in_my_counmputer" > <a href="http://127.0.0.1:5000/" style="color: red; text-decoration-line : none;">
+                        S e a r c h l i s t</a></h1>
                     
                     {% if 'N' in li %}
                         <li>데이터가 없습니다.</li>
