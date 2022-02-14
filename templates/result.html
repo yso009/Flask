@@ -38,7 +38,7 @@
 
                 {% if user_data[8] - search_data1[7] == 0 %}
                     {% set Contribution_result = '변동없음' %}
-                {% elif user_data[8] - search_data1[7] > 0 %}
+                {% elif search_data1[7] - user_data[8] > 0 %}
                     {% set Contribution_result = '+'+str(user_data[8] - search_data1[7]) %}
                 {% else %}
                     {% set Contribution_result = user_data[8] - search_data1[7] %}
