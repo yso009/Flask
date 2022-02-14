@@ -15,25 +15,25 @@
                 {% if user_data[3] - search_data1[2] == 0 %}
                     {% set Followers_result = '변동없음' %}
                 {% elif user_data[3] - search_data1[2] > 0 %}
-                    {% set Followers_result = user_data[3] - search_data1[2] %}
+                    {% set Followers_result = '+'+str(user_data[3] - search_data1[2]) %}
                 {% else %}
-                    {% set Followers_result = '-'+str(user_data[3] - search_data1[2]) %}
+                    {% set Followers_result = user_data[3] - search_data1[2] %}
                 {% endif %}
 
                 {% if user_data[4] - search_data1[3] == 0 %}
                     {% set Followings_result = '변동없음' %}
                 {% elif user_data[4] - search_data1[3] > 0 %}
-                    {% set Followings_result = user_data[4] - search_data1[3] %}
+                    {% set Followings_result = '+'+str(user_data[4] - search_data1[3]) %}
                 {% else %}
-                    {% set Followings_result = '-' , user_data[4] - search_data1[3] %}
+                    {% set Followings_result =  user_data[4] - search_data1[3] %}
                 {% endif %}
 
                 {% if user_data[5] - search_data1[4] == 0 %}
                     {% set Repository_result = '변동없음' %}
                 {% elif user_data[5] - search_data1[4] > 0 %}
-                    {% set Repository_result = user_data[5] - search_data1[4] %}
+                    {% set Repository_result = '+'+str(user_data[5] - search_data1[4]) %}
                 {% else %}
-                    {% set Repository_result = '-' , user_data[5] - search_data1[4] %}
+                    {% set Repository_result = user_data[5] - search_data1[4] %}
                 {% endif %}
 
                 {% if user_data[8] - search_data1[7] == 0 %}
@@ -41,7 +41,7 @@
                 {% elif user_data[8] - search_data1[7] > 0 %}
                     {% set Repository_result = '+'+str(user_data[8] - search_data1[7]) %}
                 {% else %}
-                    {% set Repository_result = '-' , user_data[8] - search_data1[7] %}
+                    {% set Repository_result = user_data[8] - search_data1[7] %}
                 {% endif %}
 
 
