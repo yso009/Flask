@@ -37,11 +37,11 @@
                 {% endif %}
 
                 {% if user_data[8] - search_data1[7] == 0 %}
-                    {% set Repository_result = '변동없음' %}
+                    {% set Contribution_result = '변동없음' %}
                 {% elif user_data[8] - search_data1[7] > 0 %}
-                    {% set Repository_result = '+'+str(user_data[8] - search_data1[7]) %}
+                    {% set Contribution_result = '+'+str(user_data[8] - search_data1[7]) %}
                 {% else %}
-                    {% set Repository_result = user_data[8] - search_data1[7] %}
+                    {% set Contribution_result = user_data[8] - search_data1[7] %}
                 {% endif %}
 
 
@@ -60,7 +60,9 @@
                 <li>Repository : {{ user_data[5] }}  --------------------------------------------------------------- {{search_data1[4]}} / {{ Repository_result }}</li>
                 <!-- <li>Repository : {{ user_data[5] }}  --------------------------------------------------------------- {{search_data1[4]}} / {% if user_data[5] - search_data1[4] == 0 %} 변동 없음 {% else %} +{{ search_data1[4] - user_data[5]  }} {%endif %}</li> -->
                 <li>Introduce : {{ user_data[6] }} ------------------------------------------------------------ {{search_data1[5]}} </li>
-                <li>Contribution : {{ user_data[8] }} ------------------------------------------------------------ {{search_data1[7]}} / {% if user_data[8] - search_data1[7] == 0 %} 변동 없음 {% elif search_data1[7] - user_data[8] > 0 %} +{{ search_data1[7] - user_data[8] }} {% else %} {{ search_data1[7] - user_data[8] }} {%endif %}  </li>
+
+                <!-- <li>Contribution : {{ user_data[8] }} ------------------------------------------------------------ {{search_data1[7]}} / {% if user_data[8] - search_data1[7] == 0 %} 변동 없음 {% elif search_data1[7] - user_data[8] > 0 %} +{{ search_data1[7] - user_data[8] }} {% else %} {{ search_data1[7] - user_data[8] }} {%endif %}  </li> -->
+                <li>Contribution : {{ user_data[8] }} ------------------------------------------------------------ {{search_data1[7]}} / {{Contribution_result}} </li>
                 
                 <div style="text-align: center; display: flex;justify-content: space-around;">
                     <div>
